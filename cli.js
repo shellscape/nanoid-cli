@@ -2,6 +2,7 @@
 
 const meow = require('meow');
 
+const nanoid = require('nanoid');
 const generate = require('nanoid/generate');
 const url = require('nanoid/url');
 
@@ -26,14 +27,16 @@ const cli = meow(`
   flags: {
     alphabet: {
       type: 'string',
-      alias: 'a',
-      default: url
+      alias: 'a'
     },
     size: {
-      alias: 's',
-      default: 21
+      alias: 's'
     }
   }
 });
 
-process.stdout.write(generate(cli.flags.alphabet, cli.flags.size));
+const id = cli.flags.alphabet
+  ? generate(cli.flags.alphabet, cli.flags.size || 21)
+  : nanoid(cli.flags.size);
+
+process.stdout.write(id);
