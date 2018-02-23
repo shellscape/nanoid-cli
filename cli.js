@@ -35,7 +35,14 @@ const cli = meow(`
   }
 });
 
-const id = cli.flags.alphabet
+function equivalent(strA, strB) {
+  const arrA = strA.split('').sort();
+  const arrB = strB.split('').sort();
+
+  return JSON.stringify(arrA) === JSON.stringify(arrB);
+}
+
+const id = cli.flags.alphabet && !equivalent(cli.flags.alphabet, url)
   ? generate(cli.flags.alphabet, cli.flags.size || 21)
   : nanoid(cli.flags.size);
 
