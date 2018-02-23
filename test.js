@@ -1,16 +1,10 @@
 import test from 'ava';
 import execa from 'execa';
 
-test('prints version number', async (t) => {
-  const { stdout } = await execa('./cli.js', ['--version']);
-
-  t.true(stdout.length > 0);
-});
-
-test('generates id of length 21', async (t) => {
+test('generates an id', async (t) => {
   const { stdout } = await execa('./cli.js');
 
-  t.true(stdout.length === 21);
+  t.true(stdout.length > 0);
 });
 
 test('respects the size option', async (t) => {
