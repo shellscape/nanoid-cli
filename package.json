@@ -1,0 +1,38 @@
+{
+  "name": "nanoid-cli",
+  "version": "1.0.0",
+  "description": "cli wrapper around nanoid",
+  "license": "MIT",
+  "repository": "twhitbeck/nanoid-cli",
+  "author": {
+    "name": "Tim Whitbeck",
+    "email": "twhitbeck@gmail.com",
+    "url": "twhitbeck.com"
+  },
+  "bin": {
+    "nanoid": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "uuid",
+    "nanoid",
+    "generate",
+    "cli"
+  ],
+  "dependencies": {
+    "meow": "4.0.0",
+    "nanoid": "^1.0.2"
+  },
+  "devDependencies": {
+    "ava": "0.25.0",
+    "execa": "0.9.0"
+  }
+}
