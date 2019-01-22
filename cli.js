@@ -46,4 +46,4 @@ const id = cli.flags.alphabet && !equivalent(cli.flags.alphabet, url)
   ? generate(cli.flags.alphabet, cli.flags.size || 21)
   : nanoid(cli.flags.size);
 
-process.stdout.write(id);
+console.log(id);
