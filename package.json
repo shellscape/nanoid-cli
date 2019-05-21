@@ -29,10 +29,10 @@
   ],
   "dependencies": {
     "meow": "4.0.0",
-    "nanoid": "^1.0.2"
+    "nanoid": "^1.3.4"
   },
   "devDependencies": {
-    "ava": "0.25.0",
+    "ava": "^1.4.1",
     "execa": "0.9.0"
   }
 }
