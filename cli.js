@@ -13,6 +13,7 @@ const cli = meow(`
   Options
     --alphabet, -a  Use a different alphabet to generate the id
     --size, -s      Generate an id of a different size
+    --number, -n    Number of (new-line delimited) ids to generate
 
   Examples
     $ nanoid
@@ -23,6 +24,11 @@ const cli = meow(`
 
     $ nanoid --alphabet "_~0123456789abcdefghijklmnopqrstuvwxyz"
     6me9uz2j_blasac~0p5as
+
+    $ nanoid --number 3
+    00MbOR~aWAlTQJ1LITOpT
+    YfVfbz9OQJIzfz3siAEoj
+    s4cA7JjAGKSCiOhxELuKm
 `, {
   flags: {
     alphabet: {
@@ -31,6 +37,9 @@ const cli = meow(`
     },
     size: {
       alias: 's'
+    },
+    number: {
+      alias: 'n'
     }
   }
 });
@@ -42,8 +51,16 @@ function equivalent(strA, strB) {
   return JSON.stringify(arrA) === JSON.stringify(arrB);
 }
 
-const id = cli.flags.alphabet && !equivalent(cli.flags.alphabet, url)
-  ? generate(cli.flags.alphabet, cli.flags.size || 21)
-  : nanoid(cli.flags.size);
+const n = cli.flags.number || 1;
+const ids = [];
+if (cli.flags.alphabet && !equivalent(cli.flags.alphabet, url)) {
+  for (let i = 0; i < n; i++) {
+    ids.push(generate(cli.flags.alphabet, cli.flags.size || 21));
+  }
+} else {
+  for (let i = 0; i < n; i++) {
+    ids.push(nanoid(cli.flags.size));
+  }
+}
 
-process.stdout.write(id);
+process.stdout.write(`${ids.join('\n')}\n`);

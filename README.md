@@ -14,6 +14,7 @@ eftOYF0ie93F_yVhkOBcM
 ```
 --alphabet, -a  Use a different alphabet to generate the id
 --size, -s      Generate an id of a different size
+--number, -n    Number of (new-line delimited) ids to generate
 ```
 
 ### Examples
@@ -31,4 +32,11 @@ xgX77wBFcY1lso9R12Y2lHrluUbLjAPV
 ```sh
 $ nanoid --alphabet "_~0123456789abcdefghijklmnopqrstuvwxyz"
 6me9uz2j_blasac~0p5as
+```
+
+```sh
+$ nanoid --number 3
+00MbOR~aWAlTQJ1LITOpT
+YfVfbz9OQJIzfz3siAEoj
+s4cA7JjAGKSCiOhxELuKm
 ```
